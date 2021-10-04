@@ -12,21 +12,33 @@ const specialCharacterArray = ["!","#", "$", "%", "&", "'", "(", ")", "*", "+","
 // Ask the user for the password (gathering an information) // prompt and confirm  
 // password length 8< 128
 // lowercase, uppercase, numbers, special characters,
-const numCharacter = prompt ("How many character numbers would you like between 8 and 128?")
-const numbers = confirm ("Would you like numbers in your password?")
-const uppercase = confirm ("Would you like uppercase characters in your password?") 
-const lowercase = confirm ("Would you like lowercase characters in your password?")
-const characters = confirm ("Would you like special characters in your password?")
+const numCharacter = prompt ("How many character numbers would you like between 8 and 128?");
+const numbers = confirm ("Would you like numbers in your password?");
+const uppercase = confirm ("Would you like uppercase characters in your password?"); 
+const lowercase = confirm ("Would you like lowercase characters in your password?");
+const characters = confirm ("Would you like special characters in your password?");
+ 
+const generatePassword = function() {
+  const userChoice = window.prompt('Enter lowercaseCharacter');
+  if (!userChoice)
+  return
 
-//Validate user answers 
+  const userChoice = window.prompt('Enter uppercaseCharacter');
+  if (!userChoice)
+  return
 
+  const userChoice = window.prompt('Enter numberCharacter');
+  if (!userChoice)
+  return
 
+  const userChoice = window.prompt('Enter specialCharacter');
+  if (!userChoice)
+  return
+}
+// Get random index from array of options 
+const index= Math.floor(Math.random() * PushSubscriptionOptions.length);
+const userChoice = options [index];
 
-// Generate a password (use loop) 
-
-// Return (generated password based on criteria)
-
-// Display the password on the page
 
 }
 
