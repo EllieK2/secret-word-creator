@@ -39,6 +39,7 @@ const generatePassword = function() {
 const index= Math.floor(Math.random() * PushSubscriptionOptions.length);
 const userChoice = options [index];
 
+window.alert('userChoice');
 
 }
 
