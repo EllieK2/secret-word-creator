@@ -25,12 +25,21 @@ const askSpecialCharacters = confirm ("Would you like special characters in your
 function acceptanceCriteria () {
 
 const passwordOptions = {}
-const length = getPasswordLength ()
-const askNumbers = confirm ("Would you like to include numbers in your password?");
-const askUpperCase = confirm ("Would you like to include uppercase characters in your password?"); 
-const askLowerCase = confirm ("Would you like lowercase characters in your password?");
-const askSpecialCharacters = confirm ("Would you like special characters in your password?");
-passwordOptions.length = length 
+const length = getPasswordLength () 
+const askNumbers = getNumbers ()
+const askUpperCase = getUpperCases () 
+const askLowerCase = getLowerCases ()
+const askSpecialCharacters = getSpecialCharacters ()
+passwordOptions.length = length
+
+passwordOptions.askNumbers = askNumbers
+
+passwordOptions.askUpperCases = askUpperCase
+
+passwordOptions.askLowerCase = askLowerCase
+
+passwordOptions.askSpecialCharacters = askSpecialCharacters
+
 return passwordOptions 
 };
 
@@ -38,10 +47,34 @@ return passwordOptions
 function getPasswordLength () {
   const length = prompt ("Choose password length between 8 and 128");
   return length; 
-  
 };
 
+function getNumbers () {
+  const askNumbers = confirm ("Would you like to include numbers in your password?");
+  return askNumbers; 
+};
+
+function getUpperCase () {
+  const askUpperCase = confirm ("Would you like to include uppercase characters in your password?"); 
+  return askUpperCase; 
+};
+
+function getLowerCase () {
+  const askLowerCase = confirm ("Would you like lowercase characters in your password?");
+  return askLowerCase;  
+};
+
+function getSpecialCharacters () {
+  const askSpecialCharacters = confirm ("Would you like special characters in your password?");
+  return askSpecialCharacters;
+};
+
+
+
+
+
 ////broken code I dont seem to get this working from that point 
+////logical operators
 
 //define character types to use for the password 
 //if (confirmLength) {
@@ -62,8 +95,8 @@ function getPasswordLength () {
 
 // Write password to the #password input
 function writePassword() {
-var password = generatePassword();
-var passwordText = document.querySelector('#password');
+const password = generatePassword();
+const passwordText = document.querySelector('#password');
   
 passwordText.value = password;
 }
