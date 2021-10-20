@@ -88,12 +88,6 @@ const specialCharacters = [
   "~",
 ];
 
-//define variables
-///const numberSelection = false;
-///const upperSelection = false;
-///const lowerSelection = false;
-///const specialCharacterSelection = false;
-
 const generateBtn = document.querySelector("#generate");
 console.log("generate password");
 
@@ -101,12 +95,45 @@ function generatePassword() {
   const passwordOptions = acceptanceCriteria();
   console.log(passwordOptions);
 
+  const passwordCollection = []; 
+
+  const password = [];
+
   if (!passwordOptions.askNumbers && !passwordOptions.askUpperCases && !passwordOptions.askLowerCases && !passwordOptions.askSpecialCharacters) {
     alert("Please select one of the options")
     
     return; 
   }
+  if (passwordOptions.askNumbers) {
+    passwordCollection.push (...numbers)
+  }
+
+  if (passwordOptions.askUpperCases) {
+    passwordCollection.push (...upperCase)
+  }
+
+  if (passwordOptions.askLowerCase) {
+    passwordCollection.push (...lowerCase)
+  }
+
+  if (passwordOptions.askSpecialCharacters) {
+    passwordCollection.push (...specialCharacters)
+  }
+  console.log(passwordCollection)
+
+  for (let i = 0; i < passwordOptions.length; i++) {
+    const value = randomIndex (passwordCollection)
+    password.push (value)
+  }
+  console.log(password)
+   return password.join ("") 
 }
+
+  function randomIndex (arr) {
+    const index = Math.floor(Math.random () *arr.length) 
+    return arr [index]
+  }
+
 // function to define criteria selected for the password
 function acceptanceCriteria() {
   const passwordOptions = {};
@@ -167,26 +194,6 @@ function getSpecialCharacters() {
   );
   return askSpecialCharacters;
 }
-
-////broken code I dont seem to get this working from that point
-////logical operators
-
-//define character types to use for the password
-//if (confirmLength) {
-//if (confirm ("Would you like to include numbers in your password?") === true) {
-// numberCase = true
-// }
-
-//if (confirm ("Would you like to include uppercase characters in your password?") === true) {
-// upperCase = true
-//}
-
-//if (confirm ("Would you like lowercase characters in your password?") === true) {
-// lowerCase = true
-//}
-//if (confirm ("Would you like special characters in your password?") === true) {
-// specialCharacterSelectionCase = true
-//}
 
 // Write password to the #password input
 function writePassword() {
